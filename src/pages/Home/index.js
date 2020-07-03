@@ -4,7 +4,7 @@ import axios from '../../services/axios';
 import key from '../../config/apiKey';
 import { Container, Title } from './style';
 
-import SmalSlider from '../../components/SmalSlider';
+import Slider from '../../components/Slider';
 
 export default function Home() {
   const [trending, setTrending] = useState([]);
@@ -54,17 +54,17 @@ export default function Home() {
 
   return (
     <Container>
-      <Title>Mais populares</Title>
-      <SmalSlider data={trending} size={400} />
+      <Title>Os famosos do momento</Title>
+      <Slider data={trending} size={400} />
 
-      <Title>Os filmes do momento</Title>
-      <SmalSlider data={popularFilms} size={250} />
+      <Title>Filmes populares</Title>
+      <Slider data={popularFilms} size={250} />
 
       <Title>Os queridinhos da galera</Title>
-      <SmalSlider data={topRated} size={250} />
+      <Slider data={topRated} size={250} />
 
       <Title>Séries favoritas</Title>
-      <SmalSlider data={series} size={250} />
+      <Slider data={series} size={250} />
     </Container>
   );
 }

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
 import * as colors from '../../config/colors';
 
 export const Head = styled.header`
@@ -19,12 +20,14 @@ export const LogoList = styled.ul`
     align-items: center;
     padding: 0 22px;
 
-    li {
+    li a {
+      text-decoration: none;
+      color: ${colors.textColor};
       padding: 0 12px;
       font-weight: 700;
     }
 
-    li:hover {
+    li a:hover {
       cursor: pointer;
       font-size: 20px;
     }

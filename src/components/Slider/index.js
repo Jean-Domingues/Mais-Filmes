@@ -9,7 +9,7 @@ import {
   ArrowRight,
 } from './style';
 
-export default function SmalSlider({ data, size }) {
+export default function Slider({ data, size }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   function nextSlide() {

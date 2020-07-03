@@ -18,16 +18,16 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const fadeIn = keyframes`
- 0% {
-    opacity: 0;
-    }
+  70%{
+    opacity:0;
+  }
   100% {
     opacity: 1;
     }
 `;
 
 export const Container = styled.div`
-  animation: ${fadeIn} 4s linear;
+  animation: ${fadeIn} 3s linear;
 `;
 
 const spin = keyframes`
