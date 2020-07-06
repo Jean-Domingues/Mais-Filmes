@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
 import * as colors from '../../config/colors';
 
 export const Head = styled.header`
@@ -44,9 +43,6 @@ export const LogoContainer = styled.div`
 `;
 
 export const SearchMenu = styled.div`
-  display: flex;
-  align-items: center;
-
   div {
     padding: 10px;
     margin-left: 5px;
@@ -54,7 +50,6 @@ export const SearchMenu = styled.div`
 
   div:hover {
     cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0px 1px 8px #7a7a7a;
+    filter: brightness(0.5);
   }
 `;

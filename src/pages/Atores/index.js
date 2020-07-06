@@ -1,5 +1,11 @@
 import React from 'react';
 
+import { Container } from './style';
+
 export default function Atores() {
-  return <h1>Atores</h1>;
+  return (
+    <Container>
+      <h1>Atores</h1>
+    </Container>
+  );
 }

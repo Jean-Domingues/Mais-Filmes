@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaSearch } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo-filmes.svg';
@@ -8,10 +7,14 @@ import Logo from '../../assets/logo-filmes.svg';
 import { Head, LogoList, SearchMenu, LogoContainer } from './style';
 
 export default function Header() {
+  function handleRefresh() {
+    document.location.reload();
+  }
+
   return (
     <Head>
       <LogoList>
-        <LogoContainer>
+        <LogoContainer onClick={handleRefresh}>
           <img src={Logo} width="80" alt="+Filmes" />
         </LogoContainer>
         <ul>
@@ -33,9 +36,6 @@ export default function Header() {
       <SearchMenu>
         <div>
           <FaSearch size={24} />
-        </div>
-        <div>
-          <GiHamburgerMenu size={30} />
         </div>
       </SearchMenu>
     </Head>

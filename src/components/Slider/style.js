@@ -17,6 +17,8 @@ export const WrapContainer = styled.div`
 export const Slide = styled.div`
   height: ${props => props.size}px;
   margin-right: 10px;
+  position: relative;
+  cursor: pointer;
 
   & img {
     height: 100%;
@@ -43,4 +45,28 @@ export const ArrowRight = styled(ArrowLeft)`
   background: linear-gradient(to right, rgba(0, 0, 0, 0), black);
   left: auto;
   right: 0;
+`;
+
+export const Details = styled.div`
+  opacity: 0;
+  font-size: ${props => props.size * (1 / 18)}px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  transition: all 0.2s;
+  transition-delay: 1s;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & p {
+    margin-top: 6px;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
 `;

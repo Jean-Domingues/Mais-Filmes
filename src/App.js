@@ -7,7 +7,7 @@ import Opening from './components/Opening';
 import Header from './components/Header';
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 2000);

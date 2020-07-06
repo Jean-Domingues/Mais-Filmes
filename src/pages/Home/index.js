@@ -58,10 +58,10 @@ export default function Home() {
       <Slider data={trending} size={400} />
 
       <Title>Filmes populares</Title>
-      <Slider data={popularFilms} size={250} />
+      <Slider data={popularFilms} size={250} film />
 
       <Title>Os queridinhos da galera</Title>
-      <Slider data={topRated} size={250} />
+      <Slider data={topRated} size={250} film />
 
       <Title>Séries favoritas</Title>
       <Slider data={series} size={250} />

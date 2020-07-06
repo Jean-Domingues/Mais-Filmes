@@ -1,5 +1,10 @@
 import React from 'react';
+import { Container, Title } from './style';
 
 export default function Filmes() {
-  return <h1>Filmes</h1>;
+  return (
+    <Container>
+      <Title>Principais filmes</Title>
+    </Container>
+  );
 }
