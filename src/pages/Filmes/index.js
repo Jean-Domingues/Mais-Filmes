@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Title } from './style';
 
+// import { Loader } from '../../style';
+
 export default function Filmes() {
   return (
     <Container>

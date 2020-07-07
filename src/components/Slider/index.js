@@ -37,10 +37,10 @@ export default function Slider({ data, size, film }) {
       {currentSlide <= 0 ? (
         <></>
       ) : (
-          <ArrowLeft onClick={prevSlide}>
-            <FiArrowLeft color="white" size={30} />
-          </ArrowLeft>
-        )}
+        <ArrowLeft onClick={prevSlide}>
+          <FiArrowLeft color="white" size={30} />
+        </ArrowLeft>
+      )}
 
       <WrapContainer
         style={{ transform: `translateX(-${currentSlide * 1.6 * size}px)` }}

@@ -13,6 +13,7 @@ export const Container = styled.div`
 export const Title = styled.h1`
   font-size: 32px;
   font-weight: bold;
+  padding: 0 0 5px 5px;
   margin-top: 30px;
   color: ${colors.textColor};
 `;

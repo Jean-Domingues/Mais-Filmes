@@ -32,6 +32,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    'no-console': 0
+    'no-console': 0,
+    'react/prop-types': 0
   },
 };
