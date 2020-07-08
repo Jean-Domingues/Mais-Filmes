@@ -17,6 +17,7 @@ export default function Header() {
         <LogoContainer onClick={handleRefresh}>
           <img src={Logo} width="80" alt="+Filmes" />
         </LogoContainer>
+
         <ul>
           <li>
             <Link to="/">Inicio </Link>

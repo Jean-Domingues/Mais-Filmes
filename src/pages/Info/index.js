@@ -46,7 +46,7 @@ export default function Info({ location }) {
       }
       setInform(response.data);
 
-      console.log(response.data);
+      // console.log(response.data);
     };
     getData();
   }, [location]);
@@ -81,6 +81,7 @@ export default function Info({ location }) {
             <Details>
               <h2>{inform.name || inform.title || inform.original_title}</h2>
               <h4>{inform.tagline}</h4>
+
               <div>
                 <span>
                   {inform.release_date
@@ -93,7 +94,18 @@ export default function Info({ location }) {
                     {inform.number_of_seasons > 1 ? 'Temporadas' : 'Temporada'}
                   </span>
                 )}
+
+                <span
+                  style={{
+                    color: `${
+                      inform.vote_average >= 6 ? '#00e800' : '#fb0000'
+                    }`,
+                  }}
+                >
+                  {inform.vote_average * 10}%
+                </span>
               </div>
+
               <p>
                 <strong>Sinopse: </strong>
                 {inform.overview || <i>Não foi possível obter</i>}
