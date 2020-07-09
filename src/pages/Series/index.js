@@ -54,7 +54,7 @@ export default function Filmes() {
     getData();
   }, []);
 
-  return popular ? (
+  return popular[0] ? (
     <Container>
       <Title>Séries populares</Title>
       <Slider data={popular} size={400} />

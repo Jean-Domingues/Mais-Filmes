@@ -33,6 +33,12 @@ export const Pagination = styled.div`
   width: 100%;
   padding: 50px 0 20px 0;
   display: flex;
+  align-items: center;
   justify-content: center;
-  color: ${colors.prymaryColor};
+  color: ${colors.textColor};
+  font-size: 24px;
+
+  & svg {
+    cursor: pointer;
+  }
 `;

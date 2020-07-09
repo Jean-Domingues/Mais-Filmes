@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 import { Container, ListActors, Pagination } from './style';
 import axios from '../../services/axios';
@@ -7,17 +8,22 @@ import { Loader } from '../../style';
 
 export default function Atores() {
   const [actors, setActors] = useState([]);
+  const [pag, setPage] = useState(1);
 
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        `/person/popular?api_key=${key}&language=pt-BR&page=1`
+        `/person/popular?api_key=${key}&language=pt-BR&page=${pag}`
       );
       setActors(response.data.results);
       // console.log(response.data);
     }
     getData();
-  }, []);
+  }, [pag]);
+
+  function handleChangePage(num) {
+    setPage(pag + num);
+  }
 
   return actors[0] ? (
     <Container>
@@ -34,7 +40,13 @@ export default function Atores() {
       ))}
 
       <Pagination>
-        <h3>Pag 1 ■ ■</h3>
+        {pag > 1 ? (
+          <IoIosArrowBack onClick={() => handleChangePage(-1)} size={32} />
+        ) : null}
+        {pag}
+        {pag < 500 ? (
+          <IoIosArrowForward onClick={() => handleChangePage(1)} size={32} />
+        ) : null}
       </Pagination>
     </Container>
   ) : (
