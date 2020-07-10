@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
+import { useHistory } from 'react-router-dom';
 import { Container, ListActors, Pagination } from './style';
 import axios from '../../services/axios';
 import key from '../../config/apiKey';
@@ -9,6 +10,7 @@ import { Loader } from '../../style';
 export default function Atores() {
   const [actors, setActors] = useState([]);
   const [pag, setPage] = useState(1);
+  const history = useHistory();
 
   useEffect(() => {
     async function getData() {
@@ -25,10 +27,17 @@ export default function Atores() {
     setPage(pag + num);
   }
 
+  function handleRedirect(actor) {
+    history.push({
+      pathname: '/atores/info',
+      state: actor,
+    });
+  }
+
   return actors[0] ? (
     <Container>
       {actors.map(actor => (
-        <ListActors key={actor.id}>
+        <ListActors onClick={() => handleRedirect(actor)} key={actor.id}>
           <div>
             <img
               src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
