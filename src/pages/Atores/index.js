@@ -7,9 +7,9 @@ import axios from '../../services/axios';
 import key from '../../config/apiKey';
 import { Loader } from '../../style';
 
-export default function Atores() {
+export default function Atores({ location: { state } }) {
   const [actors, setActors] = useState([]);
-  const [pag, setPage] = useState(1);
+  const [pag, setPage] = useState(state || 1);
   const history = useHistory();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Atores() {
   function handleRedirect(actor) {
     history.push({
       pathname: '/atores/info',
-      state: actor,
+      state: { actor, pag },
     });
   }
 
