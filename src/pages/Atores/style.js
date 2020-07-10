@@ -13,7 +13,10 @@ export const ListActors = styled.section`
   min-width: 210px;
   max-width: 19%;
   margin: 0 10px 10px 0;
+  padding: 8px;
+  cursor: pointer;
   text-align: center;
+  transition: all 0.2s;
 
   div {
     display: flex;
@@ -26,6 +29,11 @@ export const ListActors = styled.section`
     margin: 10px 0;
     border-radius: 10px;
     width: 90%;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
+    box-shadow: 1px 1px 4px #000;
   }
 `;
 

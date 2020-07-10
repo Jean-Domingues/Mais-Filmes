@@ -4,6 +4,14 @@ import * as colors from '../../config/colors';
 
 export const Container = styled.div`
   padding: 0 4%;
+
+  svg {
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  svg:hover {
+    color: red;
+  }
 `;
 
 export const Title = styled.h1`
