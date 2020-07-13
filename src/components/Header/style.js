@@ -43,13 +43,25 @@ export const LogoContainer = styled.div`
 `;
 
 export const SearchMenu = styled.div`
+  display: flex;
+  align-items: center;
+
   div {
     padding: 10px;
     margin-left: 5px;
   }
 
-  div:hover {
+  div svg:hover {
     cursor: pointer;
     filter: brightness(0.5);
+  }
+
+  input {
+    height: 28px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    width: 100%;
+    padding: 5px;
   }
 `;

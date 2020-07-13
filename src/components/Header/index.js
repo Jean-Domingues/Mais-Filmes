@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { FaSearch } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../assets/logo-filmes.svg';
 
 import { Head, LogoList, SearchMenu, LogoContainer } from './style';
 
 export default function Header() {
+  const [search, setSearch] = useState(false);
+  const history = useHistory();
+
   function handleRefresh() {
     document.location.reload();
+  }
+
+  function handleToggleSearch() {
+    setSearch(!search);
+  }
+
+  function handleSearch(e) {
+    if (e.key === 'Enter') {
+      history.push('atores');
+      setSearch(false);
+    }
   }
 
   return (
@@ -34,10 +48,19 @@ export default function Header() {
         </ul>
       </LogoList>
 
-      <SearchMenu>
+      <SearchMenu style={{ width: `${search ? '50%' : ''}` }}>
         <div>
-          <FaSearch size={24} />
+          <FaSearch size={24} onClick={handleToggleSearch} />
         </div>
+
+        {search ? (
+          <input
+            type="text"
+            autoFocus="true"
+            onBlur={handleToggleSearch}
+            onKeyPress={handleSearch}
+          />
+        ) : null}
       </SearchMenu>
     </Head>
   );
