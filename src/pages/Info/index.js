@@ -46,7 +46,7 @@ export default function Info({ location }) {
       }
       setInform(response.data);
 
-      // console.log(response.data);
+      console.log(response.data);
     };
     getData();
   }, [location]);

@@ -8,6 +8,7 @@ import Filmes from './pages/Filmes';
 import Info from './pages/Info';
 import Series from './pages/Series';
 import InfoAtores from './pages/InfoAtores';
+import Search from './pages/Search';
 
 export default function Routes() {
   return (
@@ -16,6 +17,7 @@ export default function Routes() {
       <Route exact path="/filmes" component={Filmes} />
       <Route exact path="/series" component={Series} />
       <Route exact path="/info" component={Info} />
+      <Route exact path="/search" component={Search} />
       <Route exact path="/atores" component={Atores} />
       <Route exact path="/atores/info" component={InfoAtores} />
     </Switch>

@@ -20,7 +20,10 @@ export default function Header() {
 
   function handleSearch(e) {
     if (e.key === 'Enter') {
-      history.push('atores');
+      history.push({
+        pathname: '/search',
+        state: e.target.value,
+      });
       setSearch(false);
     }
   }
@@ -56,7 +59,7 @@ export default function Header() {
         {search ? (
           <input
             type="text"
-            autoFocus="true"
+            autoFocus
             onBlur={handleToggleSearch}
             onKeyPress={handleSearch}
           />
