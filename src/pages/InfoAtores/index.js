@@ -2,7 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { useHistory } from 'react-router-dom';
-import { Container, Title, ActorContainer, DetailsActor } from './style';
+import {
+  Container,
+  Title,
+  ActorContainer,
+  DetailsActor,
+  Films,
+  Film,
+} from './style';
 import axios from '../../services/axios';
 import key from '../../config/apiKey';
 
@@ -28,6 +35,13 @@ export default function InfoAtores({ location: { state } }) {
     history.push({
       pathname: '/atores',
       state: state.pag,
+    });
+  }
+
+  function handleRedirect(item) {
+    history.push({
+      pathname: '/info',
+      state: { item },
     });
   }
 
@@ -61,6 +75,22 @@ export default function InfoAtores({ location: { state } }) {
           </ul>
         </DetailsActor>
       </ActorContainer>
+
+      <Films>
+        <h2>Conhecido por:</h2>
+        <div>
+          {state.actor.known_for
+            ? state.actor.known_for.map(filme => (
+                <Film key={filme.id} onClick={() => handleRedirect(filme)}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${filme.poster_path}`}
+                    alt=""
+                  />
+                </Film>
+              ))
+            : null}
+        </div>
+      </Films>
     </Container>
   ) : (
     <div

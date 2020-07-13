@@ -4,6 +4,7 @@ import * as colors from '../../config/colors';
 
 export const Container = styled.div`
   padding: 0 4%;
+  padding-bottom: 50px;
 
   svg {
     cursor: pointer;
@@ -37,9 +38,29 @@ export const ActorContainer = styled.article`
 
 export const DetailsActor = styled.section`
   width: 73%;
-  padding: 20px;
+  padding: 0 20px;
 
   ul {
     list-style: none;
+  }
+`;
+
+export const Films = styled.section`
+  margin-top: 50px;
+  div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+`;
+
+export const Film = styled.div`
+  margin-right: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  img {
+    width: 200px;
+  }
+  &:hover {
+    border: 1px solid gray;
   }
 `;
