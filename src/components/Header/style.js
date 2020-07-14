@@ -30,14 +30,30 @@ export const LogoList = styled.ul`
       cursor: pointer;
       font-size: 20px;
     }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
 export const LogoContainer = styled.div`
+  img {
+    width: 80px;
+  }
   &:hover {
     cursor: pointer;
     img {
       width: 85px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    img {
+      width: 60px;
+    }
+    img:hover {
+      width: 65px;
     }
   }
 `;
@@ -63,5 +79,35 @@ export const SearchMenu = styled.div`
     border: none;
     width: 100%;
     padding: 5px;
+  }
+`;
+
+export const ArrowMenu = styled.div`
+  display: none;
+  width: 20px;
+  margin-left: 10px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 80px;
+    z-index: 9999;
+    transform: ${props => (props.open ? 'translateX(0)' : 'translateX(-100%)')};
+    height: 40vh;
+    width: 280px;
+
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.9);
+    transition: all 0.2s;
+  }
+
+  ul li {
+    margin-top: 40px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: block;
   }
 `;

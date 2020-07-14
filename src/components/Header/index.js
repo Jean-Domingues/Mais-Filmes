@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaCaretDown } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../assets/logo-filmes.svg';
 
-import { Head, LogoList, SearchMenu, LogoContainer } from './style';
+import { Head, LogoList, SearchMenu, LogoContainer, ArrowMenu } from './style';
 
 export default function Header() {
   const [search, setSearch] = useState(false);
+  const [open, setOpen] = useState(false);
   const history = useHistory();
 
   function handleRefresh() {
@@ -28,12 +29,35 @@ export default function Header() {
     }
   }
 
+  function handleOpenMenu() {
+    setOpen(!open);
+  }
+
   return (
     <Head>
       <LogoList>
         <LogoContainer onClick={handleRefresh}>
-          <img src={Logo} width="80" alt="+Filmes" />
+          <img src={Logo} alt="+Filmes" />
         </LogoContainer>
+
+        <ArrowMenu open={open} onClick={handleOpenMenu}>
+          <FaCaretDown size={28} />
+
+          <ul>
+            <li>
+              <Link to="/">Inicio </Link>
+            </li>
+            <li>
+              <Link to="/filmes">Filmes</Link>
+            </li>
+            <li>
+              <Link to="/series">Séries</Link>
+            </li>
+            <li>
+              <Link to="/atores">Atores</Link>
+            </li>
+          </ul>
+        </ArrowMenu>
 
         <ul>
           <li>
@@ -51,7 +75,7 @@ export default function Header() {
         </ul>
       </LogoList>
 
-      <SearchMenu style={{ width: `${search ? '50%' : ''}` }}>
+      <SearchMenu style={{ width: `${search ? '60%' : ''}` }}>
         <div>
           <FaSearch size={24} onClick={handleToggleSearch} />
         </div>

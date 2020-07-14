@@ -23,6 +23,7 @@ export const Results = styled.section`
 export const Item = styled.div`
   margin-right: 20px;
   width: 23%;
+  min-width: 150px;
   padding-bottom: 20px;
   cursor: pointer;
 
