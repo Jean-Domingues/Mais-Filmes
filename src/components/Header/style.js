@@ -95,7 +95,7 @@ export const ArrowMenu = styled.div`
     top: 80px;
     z-index: 9999;
     transform: ${props => (props.open ? 'translateX(0)' : 'translateX(-100%)')};
-    height: 40vh;
+    height: 260px;
     width: 280px;
 
     border-radius: 15px;
@@ -104,7 +104,7 @@ export const ArrowMenu = styled.div`
   }
 
   ul li {
-    margin-top: 40px;
+    margin-top: 35px;
   }
 
   @media only screen and (max-width: 768px) {

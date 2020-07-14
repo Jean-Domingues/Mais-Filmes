@@ -18,7 +18,6 @@ export default function Filmes() {
       const response = await axios.get(
         `tv/popular?api_key=${key}&language=pt-BR`
       );
-      // console.log(response.data);
       setPopular(response.data.results);
     }
     getData();

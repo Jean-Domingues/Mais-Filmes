@@ -23,7 +23,7 @@ export default function Slider({ data, size, film }) {
   }
 
   function nextSlide() {
-    if (currentSlide >= 8) return;
+    if (currentSlide >= 5) return;
     setCurrentSlide(currentSlide + 1);
   }
 
@@ -38,12 +38,16 @@ export default function Slider({ data, size, film }) {
         <></>
       ) : (
         <ArrowLeft onClick={prevSlide}>
-          <FiArrowLeft color="white" size={30} />
+          <FiArrowLeft color="white" size={`${window.innerWidth / 30}`} />
         </ArrowLeft>
       )}
 
       <WrapContainer
-        style={{ transform: `translateX(-${currentSlide * 1.6 * size}px)` }}
+        style={{
+          transform: `translateX(-${
+            currentSlide * (window.innerWidth * 0.75)
+          }px)`,
+        }}
       >
         {data.map(item => (
           <Slide onClick={() => HandleRedirect(item)} key={item.id} size={size}>
@@ -60,7 +64,7 @@ export default function Slider({ data, size, film }) {
       </WrapContainer>
 
       <ArrowRight onClick={nextSlide}>
-        <FiArrowRight color="white" size={30} />
+        <FiArrowRight color="white" size={`${window.innerWidth / 30}`} />
       </ArrowRight>
     </Container>
   );

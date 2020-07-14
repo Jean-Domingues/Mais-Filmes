@@ -45,8 +45,6 @@ export default function Info({ location }) {
         setTrailer('');
       }
       setInform(response.data);
-
-      console.log(response.data);
     };
     getData();
   }, [location]);
@@ -90,6 +88,7 @@ export default function Info({ location }) {
                     ? inform.last_air_date.slice(0, 4)
                     : null}
                 </span>
+
                 {isMovie ? null : (
                   <span>
                     {inform.number_of_seasons}{' '}

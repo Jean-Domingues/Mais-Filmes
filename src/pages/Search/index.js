@@ -22,7 +22,6 @@ export default function Search({ location }) {
       );
       setResult(response.data.results);
       setTotalPages(response.data.total_pages);
-      console.log(response);
     }
     getData();
   }, [location, pag]);

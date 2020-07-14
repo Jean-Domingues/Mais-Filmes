@@ -15,13 +15,20 @@ export const WrapContainer = styled.div`
 `;
 
 export const Slide = styled.div`
-  height: ${props => props.size}px;
+  height: ${props => props.size / 14}vw;
   margin-right: 10px;
   position: relative;
   cursor: pointer;
 
   & img {
     height: 100%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    height: ${props => props.size / 9}vw;
+  }
+  @media only screen and (max-width: 425px) {
+    height: ${props => props.size / 7}vw;
   }
 `;
 

@@ -26,7 +26,6 @@ export default function InfoAtores({ location: { state } }) {
         `person/${state.actor.id}?api_key=${key}&language=pt-BR`
       );
       setInfo(response.data);
-      console.log(response.data);
     }
     getDada();
   }, [state]);
