@@ -18,6 +18,10 @@ export const ListActors = styled.section`
   text-align: center;
   transition: all 0.2s;
 
+  h2 {
+    font-size: 2.4em;
+  }
+
   div {
     display: flex;
     justify-content: center;
@@ -44,7 +48,7 @@ export const Pagination = styled.div`
   align-items: center;
   justify-content: center;
   color: ${colors.textColor};
-  font-size: 24px;
+  font-size: 2.6em;
 
   & svg {
     cursor: pointer;

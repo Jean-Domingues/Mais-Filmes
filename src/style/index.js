@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
   body{
     font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
     color: ${colors.textColor};
     background-color: ${colors.backgroundColor};
   }

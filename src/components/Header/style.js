@@ -23,12 +23,13 @@ export const LogoList = styled.ul`
       text-decoration: none;
       color: ${colors.textColor};
       padding: 0 12px;
+      font-size: 1.8em;
       font-weight: 700;
     }
 
     li a:hover {
       cursor: pointer;
-      font-size: 20px;
+      font-size: 2em;
     }
 
     @media only screen and (max-width: 768px) {
@@ -75,7 +76,7 @@ export const SearchMenu = styled.div`
   input {
     height: 28px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 1.8em;
     border: none;
     width: 100%;
     padding: 5px;

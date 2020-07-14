@@ -16,7 +16,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 32px;
+  font-size: 3.2em;
   font-weight: bold;
   padding-bottom: 10px;
   color: ${colors.textColor};
@@ -42,6 +42,9 @@ export const DetailsActor = styled.section`
 
   ul {
     list-style: none;
+    p {
+      font-size: 1.6em;
+    }
   }
 `;
 
@@ -50,6 +53,10 @@ export const Films = styled.section`
   div {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  h2 {
+    font-size: 2.4em;
   }
 `;
 

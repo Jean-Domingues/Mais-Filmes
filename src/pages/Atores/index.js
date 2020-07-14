@@ -44,7 +44,7 @@ export default function Atores({ location: { state } }) {
               alt={actor.name}
             />
           </div>
-          <h1>{actor.name}</h1>
+          <h2>{actor.name}</h2>
         </ListActors>
       ))}
 

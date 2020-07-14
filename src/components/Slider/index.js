@@ -23,7 +23,7 @@ export default function Slider({ data, size, film }) {
   }
 
   function nextSlide() {
-    if (currentSlide >= 5) return;
+    if (currentSlide >= 10) return;
     setCurrentSlide(currentSlide + 1);
   }
 
@@ -38,7 +38,7 @@ export default function Slider({ data, size, film }) {
         <></>
       ) : (
         <ArrowLeft onClick={prevSlide}>
-          <FiArrowLeft color="white" size={`${window.innerWidth / 30}`} />
+          <FiArrowLeft color="white" size={`${window.innerWidth / 35}`} />
         </ArrowLeft>
       )}
 
@@ -64,7 +64,7 @@ export default function Slider({ data, size, film }) {
       </WrapContainer>
 
       <ArrowRight onClick={nextSlide}>
-        <FiArrowRight color="white" size={`${window.innerWidth / 30}`} />
+        <FiArrowRight color="white" size={`${window.innerWidth / 35}`} />
       </ArrowRight>
     </Container>
   );
