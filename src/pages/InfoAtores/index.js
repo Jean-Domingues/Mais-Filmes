@@ -32,10 +32,12 @@ export default function InfoAtores({ location: { state } }) {
   }, [state]);
 
   function handleReturn() {
-    history.push({
-      pathname: '/atores',
-      state: state.pag,
-    });
+    return state.pag
+      ? history.push({
+          pathname: '/atores',
+          state: state.pag,
+        })
+      : history.go(-1);
   }
 
   function handleRedirect(item) {

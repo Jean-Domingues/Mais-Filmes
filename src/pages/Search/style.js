@@ -4,17 +4,13 @@ import * as colors from '../../config/colors';
 
 export const Container = styled.div`
   padding: 0 4%;
-
-  h1:first-of-type {
-    margin-top: 0px;
-  }
 `;
 
 export const Title = styled.h1`
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   padding: 0 0 5px 5px;
-  margin-top: 30px;
+  margin-top: 10px;
   color: ${colors.textColor};
 `;
 
@@ -28,6 +24,7 @@ export const Item = styled.div`
   margin-right: 20px;
   width: 23%;
   padding-bottom: 20px;
+  cursor: pointer;
 
   div {
     width: 100%;
@@ -35,5 +32,23 @@ export const Item = styled.div`
 
   img {
     width: 100%;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+`;
+
+export const Pagination = styled.div`
+  width: 100%;
+  padding: 50px 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${colors.textColor};
+  font-size: 24px;
+
+  & svg {
+    cursor: pointer;
   }
 `;

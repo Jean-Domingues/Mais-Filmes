@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+
 import { useHistory } from 'react-router-dom';
-import { Container, Title, Item, Results } from './style';
+import { Container, Title, Item, Results, Pagination } from './style';
 import { Loader } from '../../style';
 
 import axios from '../../services/axios';
@@ -9,18 +11,21 @@ import key from '../../config/apiKey';
 
 export default function Search({ location }) {
   const [result, setResult] = useState([]);
+  const [pag, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const history = useHistory();
 
   useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        `search/multi?api_key=${key}&language=pt-BR&query=${location.state}&page=1&include_adult=true`
+        `search/multi?api_key=${key}&language=pt-BR&query=${location.state}&page=${pag}&include_adult=false`
       );
       setResult(response.data.results);
+      setTotalPages(response.data.total_pages);
       console.log(response);
     }
     getData();
-  }, [location]);
+  }, [location, pag]);
 
   function handleRedirect(item) {
     switch (item.media_type) {
@@ -46,6 +51,10 @@ export default function Search({ location }) {
     }
   }
 
+  function handleChangePage(num) {
+    setPage(pag + num);
+  }
+
   return result[0] ? (
     <Container>
       <Title>
@@ -69,6 +78,16 @@ export default function Search({ location }) {
           ) : null
         )}
       </Results>
+
+      <Pagination>
+        {pag > 1 ? (
+          <IoIosArrowBack onClick={() => handleChangePage(-1)} size={32} />
+        ) : null}
+        {pag}
+        {pag < totalPages ? (
+          <IoIosArrowForward onClick={() => handleChangePage(1)} size={32} />
+        ) : null}
+      </Pagination>
     </Container>
   ) : (
     <div

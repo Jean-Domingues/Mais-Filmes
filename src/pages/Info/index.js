@@ -86,7 +86,9 @@ export default function Info({ location }) {
                 <span>
                   {inform.release_date
                     ? inform.release_date.slice(0, 4)
-                    : inform.last_air_date.slice(0, 4)}
+                    : inform.last_air_date
+                    ? inform.last_air_date.slice(0, 4)
+                    : null}
                 </span>
                 {isMovie ? null : (
                   <span>

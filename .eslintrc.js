@@ -33,6 +33,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-console': 0,
-    'react/prop-types': 0
+    'react/prop-types': 0,
+    'no-nested-ternary': 0
   },
 };
