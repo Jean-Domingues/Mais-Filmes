@@ -7,25 +7,42 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 28px;
+  font-size: 2.8em;
   font-weight: bold;
-  padding: 0 0 5px 5px;
+  padding: 0 0 20px 5px;
   margin-top: 10px;
   color: ${colors.textColor};
+
+  @media only screen and (max-width: 425px) {
+    font-size: 2em;
+  }
 `;
 
 export const Results = styled.section`
-  display: flex;
-  padding: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 10px;
+
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: auto auto auto auto;
+  }
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media only screen and (max-width: 425px) {
+    grid-template-columns: auto auto;
+  }
 `;
 
 export const Item = styled.div`
-  margin-right: 20px;
-  width: 23%;
-  min-width: 150px;
-  padding-bottom: 20px;
+  min-width: 130px;
+  padding: 10px 10px 20px 10px;
+  border-radius: 10px;
+  border: 1px solid #3e3e3e;
   cursor: pointer;
+  h3 {
+    font-size: 2em;
+  }
 
   div {
     width: 100%;
@@ -38,6 +55,22 @@ export const Item = styled.div`
   &:hover {
     filter: brightness(1.2);
   }
+
+  @media only screen and (max-width: 768px) {
+    h3 {
+      font-size: 1.8em;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    h3 {
+      font-size: 1.6em;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    h3 {
+      font-size: 1.4em;
+    }
+  }
 `;
 
 export const Pagination = styled.div`
@@ -47,9 +80,17 @@ export const Pagination = styled.div`
   align-items: center;
   justify-content: center;
   color: ${colors.textColor};
-  font-size: 24px;
+  font-size: 2.4em;
 
   & svg {
     cursor: pointer;
+  }
+
+  @media only screen and (max-width: 425px) {
+    font-size: 2em;
+
+    svg {
+      width: 20px;
+    }
   }
 `;

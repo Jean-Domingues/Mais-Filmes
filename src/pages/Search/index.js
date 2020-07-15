@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-
 import { useHistory } from 'react-router-dom';
+
 import { Container, Title, Item, Results, Pagination } from './style';
 import { Loader } from '../../style';
 

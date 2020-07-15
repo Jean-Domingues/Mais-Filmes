@@ -7,6 +7,10 @@ export const Head = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 15px 4%;
+
+  @media only screen and (max-width: 425px) {
+    padding: 8px 4%;
+  }
 `;
 
 export const LogoList = styled.ul`
@@ -81,6 +85,16 @@ export const SearchMenu = styled.div`
     width: 100%;
     padding: 5px;
   }
+
+  @media only screen and (max-width: 425px) {
+    svg {
+      width: 30px;
+    }
+    input {
+      height: 22px;
+      font-size: 1.6em;
+    }
+  }
 `;
 
 export const ArrowMenu = styled.div`
@@ -93,7 +107,7 @@ export const ArrowMenu = styled.div`
     flex-direction: column;
     position: fixed;
     left: 0;
-    top: 80px;
+    top: 60px;
     z-index: 9999;
     transform: ${props => (props.open ? 'translateX(0)' : 'translateX(-100%)')};
     height: 260px;

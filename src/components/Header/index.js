@@ -41,7 +41,7 @@ export default function Header() {
         </LogoContainer>
 
         <ArrowMenu open={open} onClick={handleOpenMenu}>
-          <FaCaretDown size={28} />
+          <FaCaretDown size={22} />
 
           <ul>
             <li>

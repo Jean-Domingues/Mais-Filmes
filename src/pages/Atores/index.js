@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 import { useHistory } from 'react-router-dom';
-import { Container, ListActors, Pagination } from './style';
+import { Container, ListActors, Pagination, ActorsContainer } from './style';
 import axios from '../../services/axios';
 import key from '../../config/apiKey';
 import { Loader } from '../../style';
@@ -36,17 +36,19 @@ export default function Atores({ location: { state } }) {
 
   return actors[0] ? (
     <Container>
-      {actors.map(actor => (
-        <ListActors onClick={() => handleRedirect(actor)} key={actor.id}>
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
-              alt={actor.name}
-            />
-          </div>
-          <h2>{actor.name}</h2>
-        </ListActors>
-      ))}
+      <ActorsContainer>
+        {actors.map(actor => (
+          <ListActors onClick={() => handleRedirect(actor)} key={actor.id}>
+            <div>
+              <img
+                src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
+                alt={actor.name}
+              />
+            </div>
+            <h2>{actor.name}</h2>
+          </ListActors>
+        ))}
+      </ActorsContainer>
 
       <Pagination>
         {pag > 1 ? (

@@ -20,7 +20,6 @@ export default function InfoAtores({ location: { state } }) {
   const history = useHistory();
 
   useEffect(() => {
-    console.log(state);
     async function getDada() {
       const response = await axios.get(
         `person/${state.actor.id}?api_key=${key}&language=pt-BR`
