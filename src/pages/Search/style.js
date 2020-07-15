@@ -36,6 +36,7 @@ export const Results = styled.section`
 
 export const Item = styled.div`
   min-width: 130px;
+  max-width: 320px;
   padding: 10px 10px 20px 10px;
   border-radius: 10px;
   border: 1px solid #3e3e3e;
