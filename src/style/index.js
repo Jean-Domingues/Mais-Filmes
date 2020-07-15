@@ -28,7 +28,7 @@ const fadeIn = keyframes`
 `;
 
 export const Container = styled.div`
-  /* animation: ${fadeIn} 3s linear; */
+  animation: ${fadeIn} 3s linear;
 `;
 
 const spin = keyframes`
