@@ -82,10 +82,12 @@ export default function InfoAtores({ location: { state } }) {
           {state.actor.known_for
             ? state.actor.known_for.map(filme => (
                 <Film key={filme.id} onClick={() => handleRedirect(filme)}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${filme.poster_path}`}
-                    alt=""
-                  />
+                  <div>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${filme.poster_path}`}
+                      alt=""
+                    />
+                  </div>
                 </Film>
               ))
             : null}
