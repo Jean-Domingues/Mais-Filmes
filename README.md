@@ -22,8 +22,8 @@ Catálogo de filmes e atores, utilizando a API The Movie DB
 </h3>
 
 <p align="center">
-  <a href="#🔧-Tecnologias">Tecnologias</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#⚙-Funcionalidades">Funcionalidades</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#-funcionalidades">Funcionalidades</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#">Instalando</a>&nbsp;&nbsp;
 </p>
 
