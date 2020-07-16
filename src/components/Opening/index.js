@@ -8,7 +8,7 @@ import { Container } from './style';
 export default function Opening() {
   return (
     <Container>
-      <img src={Logo} width="550" alt="+Filmes" />
+      <img src={Logo} alt="+Filmes" />
       <Loader size="45px" border="3px" />
     </Container>
   );

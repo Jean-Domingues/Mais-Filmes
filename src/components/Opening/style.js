@@ -17,4 +17,8 @@ export const Container = styled.div`
   justify-content: space-evenly;
   align-items: center;
   animation: ${fadeIn} 0.2s linear;
+
+  img {
+    width: 40%;
+  }
 `;

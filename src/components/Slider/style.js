@@ -76,4 +76,15 @@ export const Details = styled.div`
   &:hover {
     opacity: 1;
   }
+
+  @media only screen and (max-width: 1024px) {
+    font-size: ${props => props.size * (1 / 22)}px;
+  }
+  @media only screen and (max-width: 425px) {
+    font-size: ${props => props.size * (1 / 24)}px;
+    padding: 5px;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: ${props => props.size * (1 / 25)}px;
+  }
 `;
