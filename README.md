@@ -24,7 +24,7 @@ Catálogo de filmes e atores, utilizando a API The Movie DB
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#-funcionalidades">Funcionalidades</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#">Instalando</a>&nbsp;&nbsp;
+  <a href="#-como-utilizar?">Instalando</a>&nbsp;&nbsp;
 </p>
 
 
@@ -58,3 +58,18 @@ Catálogo de filmes e atores, utilizando a API The Movie DB
 - Biografia dos atores, idades, filmes que participou.
 - Busca por atores/filmes/séries específicas.
 - Reprodução de trailers
+
+## 🤔 Como utilizar?
+
+Para clonar esta aplicação você vai precisar de, [Node.js](https://nodejs.org/en) e [Git](https://git-scm.com). 
+
+```
+ Clone este repositório
+$ git clone https://github.com/rafaelmartins92/dev-radar.git dev-radar
+
+ Instale as dependências
+$ npm install  OR  yarn install
+
+ Inicie o servidor
+$ npm start  OR  yarn start
+```
