@@ -65,7 +65,7 @@ Para clonar esta aplicação você vai precisar de, [Node.js](https://nodejs.org
 
 ```
  Clone este repositório
-$ git clone https://github.com/rafaelmartins92/dev-radar.git dev-radar
+$ git clone https://github.com/Jean-Domingues/Mais-Filmes.git MaisFilmes
 
  Instale as dependências
 $ npm install  OR  yarn install
