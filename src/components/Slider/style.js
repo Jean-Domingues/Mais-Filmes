@@ -4,14 +4,22 @@ export const Container = styled.section`
   width: 100%;
   display: flex;
   position: relative;
-  overflow: hidden;
   margin-top: 10px;
+  overflow: hidden;
 `;
 
 export const WrapContainer = styled.div`
   display: flex;
   width: 90%;
   transition: all 0.7s;
+`;
+
+export const Scroll = styled.div`
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Slide = styled.div`
@@ -45,6 +53,10 @@ export const ArrowLeft = styled.button`
 
   &:hover {
     opacity: 1;
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: none;
   }
 `;
 

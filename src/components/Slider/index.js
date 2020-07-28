@@ -9,6 +9,7 @@ import {
   ArrowLeft,
   ArrowRight,
   Details,
+  Scroll,
 } from './style';
 
 export default function Slider({ data, size, film }) {
@@ -38,33 +39,39 @@ export default function Slider({ data, size, film }) {
         <></>
       ) : (
         <ArrowLeft onClick={prevSlide}>
-          <FiArrowLeft color="white" size={`${window.innerWidth / 35}`} />
+          <FiArrowLeft color="white" size={28} />
         </ArrowLeft>
       )}
 
-      <WrapContainer
-        style={{
-          transform: `translateX(-${
-            currentSlide * (window.innerWidth * 0.75)
-          }px)`,
-        }}
-      >
-        {data.map(item => (
-          <Slide onClick={() => HandleRedirect(item)} key={item.id} size={size}>
-            <Details size={size}>
-              <h4>{item.name || item.title || item.original_title}</h4>
-              <p>{item.overview}</p>
-            </Details>
-            <img
-              src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-              alt={item.name || item.title || item.original_title}
-            />
-          </Slide>
-        ))}
-      </WrapContainer>
+      <Scroll>
+        <WrapContainer
+          style={{
+            transform: `translateX(-${
+              currentSlide * (window.innerWidth * 0.75)
+            }px)`,
+          }}
+        >
+          {data.map(item => (
+            <Slide
+              onClick={() => HandleRedirect(item)}
+              key={item.id}
+              size={size}
+            >
+              <Details size={size}>
+                <h4>{item.name || item.title || item.original_title}</h4>
+                <p>{item.overview}</p>
+              </Details>
+              <img
+                src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                alt={item.name || item.title || item.original_title}
+              />
+            </Slide>
+          ))}
+        </WrapContainer>
+      </Scroll>
 
       <ArrowRight onClick={nextSlide}>
-        <FiArrowRight color="white" size={`${window.innerWidth / 35}`} />
+        <FiArrowRight color="white" size={28} />
       </ArrowRight>
     </Container>
   );

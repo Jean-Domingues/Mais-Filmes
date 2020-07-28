@@ -36,7 +36,7 @@ export default function Header() {
   return (
     <Head>
       <LogoList>
-        <LogoContainer onClick={handleRefresh}>
+        <LogoContainer as={Link} to="/">
           <img src={Logo} alt="+Filmes" />
         </LogoContainer>
 
