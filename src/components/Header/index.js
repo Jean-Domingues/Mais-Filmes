@@ -11,10 +11,6 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const history = useHistory();
 
-  function handleRefresh() {
-    document.location.reload();
-  }
-
   function handleToggleSearch() {
     setSearch(!search);
   }
