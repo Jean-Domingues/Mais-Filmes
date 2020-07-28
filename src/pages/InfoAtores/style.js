@@ -101,9 +101,6 @@ export const DetailsActor = styled.section`
 
   @media only screen and (max-width: 425px) {
     padding-top: 0;
-    ul p {
-      font-size: 1.2em;
-    }
   }
 `;
 
