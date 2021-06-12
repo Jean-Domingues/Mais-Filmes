@@ -8,66 +8,45 @@ import { Loader } from '../../style';
 import Slider from '../../components/Slider';
 
 export default function Home() {
-  const [trending, setTrending] = useState([]);
-  const [popularFilms, setPopularFilms] = useState([]);
-  const [topRated, setTopRated] = useState([]);
-  const [series, setSeries] = useState([]);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+const [resultOfSearch, setResultOfSearch] = useState();
+  
+  const getAllData = async () => {
+    const [trending, popular, topRated, series] = await Promise.all([
+      axios.get(
         `trending/all/week?api_key=${key}&language=pt-BR`
-      );
-      setTrending(response.data.results);
-    }
-    getData();
-  }, []);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+      ),
+      axios.get(
         `movie/popular?api_key=${key}&language=pt-BR`
-      );
-      setPopularFilms(response.data.results);
-    }
-    getData();
-  }, []);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+      ),
+      axios.get(
         `movie/top_rated?api_key=${key}&language=pt-BR`
-      );
-      setTopRated(response.data.results);
-    }
-    getData();
-  }, []);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+      ),
+      axios.get(
         `tv/popular?api_key=${key}&language=pt-BR`
-      );
-      setSeries(response.data.results);
-    }
-    getData();
-  }, []);
+      )
+    ])
+    setResultOfSearch({series, popular, trending, topRated })
+  };
+
+  useEffect(()=>{
+    getAllData()
+  }, [])
 
   return (
     <Container>
-      {series[0] ? (
+      {resultOfSearch ? (
         <>
           <Title>Os famosos do momento</Title>
-          <Slider data={trending} size={400} />
+          <Slider data={resultOfSearch.trending.data.results} size={400} />
 
           <Title>Filmes populares</Title>
-          <Slider data={popularFilms} size={250} film />
+          <Slider data={resultOfSearch.popular.data.results} size={250} film />
 
           <Title>Os queridinhos da galera</Title>
-          <Slider data={topRated} size={250} film />
+          <Slider data={resultOfSearch.topRated.data.results} size={250} film />
 
           <Title>Séries favoritas</Title>
-          <Slider data={series} size={250} />
+          <Slider data={resultOfSearch.series.data.results} size={250} />
         </>
       ) : (
         <div

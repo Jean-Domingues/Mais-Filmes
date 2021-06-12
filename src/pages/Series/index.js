@@ -8,64 +8,43 @@ import key from '../../config/apiKey';
 import Slider from '../../components/Slider';
 
 export default function Filmes() {
-  const [popular, setPopular] = useState([]);
-  const [trending, setTrending] = useState([]);
-  const [onTheAir, setOnTheAir] = useState([]);
-  const [top, setTop] = useState([]);
+  const [resultOfSearch, setResultOfSearch] = useState();
 
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+  const getAllData = async () => {
+    const [ popular, trending, onTheAir, topRated ] = await Promise.all([
+      axios.get(
         `tv/popular?api_key=${key}&language=pt-BR`
-      );
-      setPopular(response.data.results);
-    }
-    getData();
-  }, []);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+      ),
+      axios.get(
         `trending/tv/week?api_key=${key}&language=pt-BR`
-      );
-      setTrending(response.data.results);
-    }
-    getData();
-  }, []);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+      ),
+      axios.get(
         `tv/on_the_air?api_key=${key}&language=pt-BR`
-      );
-      setOnTheAir(response.data.results);
-    }
-    getData();
-  }, []);
+      ),
+      axios.get(
+        `tv/top_rated?api_key=${key}&language=pt-BR`
+      )
+    ])
+    setResultOfSearch({ onTheAir, popular, trending, topRated })
+  };
 
   useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
-        `tv/top_rated?api_key=${key}&language=pt-BR`
-      );
-      setTop(response.data.results);
-    }
-    getData();
+    getAllData()
   }, []);
 
-  return popular[0] ? (
+  return resultOfSearch ? (
     <Container>
       <Title>Séries populares</Title>
-      <Slider data={popular} size={400} />
+      <Slider data={resultOfSearch.popular.data.results} size={400} />
 
       <Title>Principais</Title>
-      <Slider data={trending} size={280} />
+      <Slider data={resultOfSearch.trending.data.results} size={280} />
 
       <Title>Bem votadas</Title>
-      <Slider data={top} size={400} />
+      <Slider data={resultOfSearch.topRated.data.results} size={400} />
 
       <Title>No ar</Title>
-      <Slider data={onTheAir} size={280} />
+      <Slider data={resultOfSearch.onTheAir.data.results} size={280} />
     </Container>
   ) : (
     <div

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { Container, Title } from './style';
 
 import { Loader } from '../../style';
@@ -8,65 +8,44 @@ import key from '../../config/apiKey';
 import Slider from '../../components/Slider';
 
 export default function Filmes() {
-  const [trending, setTrending] = useState([]);
-  const [popular, setPopular] = useState([]);
-  const [recents, setRecents] = useState([]);
-  const [topRated, setTopRated] = useState([]);
+  const [resultOfSearch, setResultOfSearch] = useState();
 
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+  const getAllData = async () => {
+    const [ recents, popular, trending, topRated ] = await Promise.all([
+      axios.get(
         `movie/now_playing?api_key=${key}&language=pt-BR`
-      );
-      setRecents(response.data.results);
-    }
-    getData();
-  }, []);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+      ),
+      axios.get(
         `movie/popular?api_key=${key}&language=pt-BR`
-      );
-
-      setPopular(response.data.results);
-    }
-    getData();
-  }, []);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
+      ),
+      axios.get(
         `trending/movie/week?api_key=${key}&language=pt-BR`
-      );
-      setTrending(response.data.results);
-    }
-    getData();
-  }, []);
+      ),
+      axios.get(
+        `movie/top_rated?api_key=${key}&language=pt-BR&region=BR`
+      )
+    ])
+    setResultOfSearch({recents, popular, trending, topRated })
+  };
 
   useEffect(() => {
-    async function getData() {
-      const response = await axios.get(
-        `movie/top_rated?api_key=${key}&language=pt-BR&region=BR`
-      );
-      setTopRated(response.data.results);
-    }
-    getData();
+    getAllData()
   }, []);
 
-  return popular[0] ? (
+  return resultOfSearch ? (
     <Container>
+      {console.log(resultOfSearch)}
       <Title>Populares</Title>
-      <Slider data={recents} size={400} film />
+      <Slider data={resultOfSearch.recents.data.results} size={400} film />
 
       <Title>Trending tops</Title>
-      <Slider data={trending} size={280} film />
+      <Slider data={resultOfSearch.trending.data.results} size={280} film />
 
       <Title>Campeões da crítica</Title>
-      <Slider data={topRated} size={400} film />
+      <Slider data={resultOfSearch.topRated.data.results} size={400} film />
 
       <Title>Principais filmes</Title>
-      <Slider data={popular} size={280} film />
+      <Slider data={resultOfSearch.popular.data.results} size={280} film />
     </Container>
   ) : (
     <div
